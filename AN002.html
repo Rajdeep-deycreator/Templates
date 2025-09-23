@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Anniversary</title>
+  <style>
+    body {
+      background: linear-gradient(to top left, #ffdee9, #b5fffc);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .box {
+      text-align: center;
+      animation: fadeIn 2s ease;
+    }
+
+    h6 {
+      
+      color: #ff3399;
+      animation: typing 3s steps(25), blink .7s step-end infinite;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #ff3399;
+      width: 0;
+      margin: 0 auto;
+    }
+
+    p {
+      color: #333;
+      font-size: 1.2em;
+      margin-top: 20px;
+      opacity: 0;
+      animation: appear 1s ease 3s forwards;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 20em }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    @keyframes appear {
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h6>Happy Anniversary ❤️<br><br>______</h6>
+    <p>May your love continue to grow with every moment you share together 💑</p>
+  </div>
+</body>
+</html>

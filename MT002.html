@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Never Give Up</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      color: #00ffcc;
+      font-family: 'Courier New', monospace;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .glitch {
+      font-size: 3em;
+      position: relative;
+      animation: glitch 1s infinite;
+    }
+
+    .glitch::before,
+    .glitch::after {
+      content: 'NEVER GIVE UP';
+      position: absolute;
+      left: 0;
+      width: 100%;
+    }
+
+    .glitch::before {
+      animation: glitchTop 1s infinite;
+      top: -2px;
+      color: #ff00c1;
+    }
+
+    .glitch::after {
+      animation: glitchBottom 1s infinite;
+      top: 2px;
+      color: #00ffff;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+      100% { transform: translate(0); }
+    }
+
+    @keyframes glitchTop {
+      0% { clip-path: inset(0 0 90% 0); }
+      50% { clip-path: inset(10% 0 80% 0); }
+      100% { clip-path: inset(0 0 90% 0); }
+    }
+
+    @keyframes glitchBottom {
+      0% { clip-path: inset(80% 0 0 0); }
+      50% { clip-path: inset(60% 0 10% 0); }
+      100% { clip-path: inset(80% 0 0 0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="glitch">NEVER GIVE UP 🚀</div>
+</body>
+</html>

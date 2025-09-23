@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Birthday!</title>
+  <style>
+    body {
+      background: #ffe3f0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      animation: popIn 2s ease;
+    }
+
+    h5 {
+      
+      color: #ff3399;
+      animation: typing 3s steps(22), blink .7s step-end infinite;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #ff3399;
+      width: 0;
+      margin: 0 auto;
+    }
+
+    p {
+      color: #444;
+      font-size: 1.2em;
+      margin-top: 20px;
+      animation: fadeIn 2s ease 2.5s forwards;
+      opacity: 0;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 13.5em }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1 }
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h5>Happy Birthday❤️ <br><br>______</h1>
+    <p>Wishing you all the joy, love & cake in the world! 💖</p>
+  </div>
+</body>
+</html>

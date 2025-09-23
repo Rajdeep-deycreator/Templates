@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>You Can Do It</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .quote-box {
+      text-align: center;
+      padding: 40px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      animation: pulse 4s infinite;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, #f9d423, #ff4e50);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      font-size: 1.2em;
+      opacity: 0.9;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+      50% { transform: scale(1.03); box-shadow: 0 0 40px rgba(255,255,255,0.4); }
+    }
+  </style>
+</head>
+<body>
+  <div class="quote-box">
+    <h1>You Can Do This 💪</h1>
+    <p>Every step you take brings you closer. Keep going, you're doing amazing!</p>
+  </div>
+</body>
+</html>

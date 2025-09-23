@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forgive Me</title>
+  <style>
+    body {
+      margin: 0;
+      background: #d7eafc;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      text-align: center;
+      z-index: 2;
+    }
+
+    .card h2 {
+      color: #0066cc;
+      font-size: 2.5em;
+    }
+
+    .card p {
+      color: #333;
+      font-size: 1.1em;
+      margin-top: 10px;
+    }
+
+    .tear {
+      width: 10px;
+      height: 10px;
+      background: #88cfff;
+      border-radius: 50%;
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      animation: fall 3s infinite;
+    }
+
+    .tear:nth-child(1) {
+      left: 40%;
+      animation-delay: 0s;
+    }
+
+    .tear:nth-child(2) {
+      left: 50%;
+      animation-delay: 1s;
+    }
+
+    .tear:nth-child(3) {
+      left: 60%;
+      animation-delay: 2s;
+    }
+
+    @keyframes fall {
+      0% { top: -10px; opacity: 0; }
+      10% { opacity: 1; }
+      100% { top: 110%; opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="tear"></div>
+  <div class="tear"></div>
+  <div class="tear"></div>
+  <div class="card">
+    <h2>Forgive Me 🙏</h2>
+    <p>I never meant to hurt you. I miss you... and I'm truly sorry. 💧</p>
+  </div>
+</body>
+</html>

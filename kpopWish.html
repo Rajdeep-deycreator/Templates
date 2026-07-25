@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Bias 💜</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Poppins:wght@300;600;800&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: #fff;
+}
+
+.kpop-bg {
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  background: radial-gradient(circle at 20% 50%, #ff6b9d33, transparent 50%),
+              radial-gradient(circle at 80% 20%, #c471ed33, transparent 50%),
+              radial-gradient(circle at 40% 80%, #12c2e933, transparent 50%);
+  z-index: -1;
+  animation: glow 8s ease-in-out infinite;
+}
+@keyframes glow { 0%,100%{opacity:0.5} 50%{opacity:1} }
+
+.container {
+  max-width: 800px; margin: 0 auto; padding: 40px 20px; text-align: center;
+}
+
+h1 {
+  font-family: 'Jua', sans-serif;
+  font-size: 3.5rem; 
+  background: linear-gradient(45deg, #ff6b9d, #c471ed, #12c2e9);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  animation: bounce 2s infinite;
+  margin-bottom: 10px;
+}
+@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+
+.subtitle { font-size: 1.2rem; font-weight: 300; margin-bottom: 30px; }
+
+.photo-frame {
+  width: 280px; height: 280px; margin: 30px auto;
+  border-radius: 30px; padding: 8px;
+  background: linear-gradient(45deg, #ff6b9d, #c471ed, #12c2e9);
+  animation: rotate 10s linear infinite;
+}
+@keyframes rotate { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+.photo-frame img {
+  width:100%; height:100%; border-radius: 22px; object-fit: cover;
+  background: #fff;
+}
+
+.countdown {
+  display:flex; justify-content:center; gap:15px; margin:30px 0;
+}
+.box {
+  background: rgba(255,255,255,0.2); backdrop-filter: blur(10px);
+  padding: 15px; border-radius: 15px; min-width:80px;
+}
+.box h2 { font-size: 2rem; font-weight: 800; }
+.box p { font-size: 0.8rem; }
+
+.wishes {
+  background: rgba(255,255,255,0.15); backdrop-filter: blur(10px);
+  padding: 25px; border-radius: 20px; margin: 30px 0;
+  font-size: 1.1rem; line-height: 1.8;
+}
+
+.btn {
+  background: linear-gradient(45deg, #ff6b9d, #c471ed);
+  border: none; padding: 15px 35px; font-size: 1.1rem;
+  border-radius: 50px; color: #fff; font-weight: 600;
+  cursor: pointer; margin: 10px;
+  transition: transform 0.3s;
+}
+.btn:hover { transform: scale(1.1); }
+
+.hearts { position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:hidden; }
+.heart { position:absolute; font-size:20px; animation: fall 6s linear infinite; }
+@keyframes fall { to{transform:translateY(100vh) rotate(360deg); opacity:0} }
+
+@media(max-width:600px){ h1{font-size:2.5rem} .photo-frame{width:220px; height:220px} }
+</style>
+</head>
+<body>
+
+<div class="kpop-bg"></div>
+<div class="hearts" id="hearts"></div>
+
+<div class="container">
+  <h1>Happy Birthday! 🎉</h1>
+  <p class="subtitle">To My Favorite Idol 💜</p>
+
+  <div class="photo-frame">
+    <img id="biasPhoto" src="https://via.placeholder.com/280x280/ff6b9d/ffffff?text=Your+Bias" alt="Birthday Star">
+  </div>
+
+  <div class="countdown" id="countdown">
+    <div class="box"><h2 id="days">00</h2><p>Days</p></div>
+    <div class="box"><h2 id="hours">00</h2><p>Hours</p></div>
+    <div class="box"><h2 id="mins">00</h2><p>Mins</p></div>
+    <div class="box"><h2 id="secs">00</h2><p>Secs</p></div>
+  </div>
+
+  <div class="wishes">
+    Tumhari smile se duniya roshan hai ✨<br>
+    Tumhari awaaz se dil khush hai 💜<br>
+    Aaj tumhara din hai - Shine karo, Queen/King! 👑<br>
+    <b>Saranghae! 사랑해!</b>
+  </div>
+
+  <button class="btn" onclick="playMusic()">🎵 Play K-pop Vibe</button>
+  <button class="btn" onclick="confetti()">🎊 Confetti!</button>
+
+  <audio id="bgMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<script>
+// 1. Birthday date set karo yaha
+const birthday = new Date("2026-12-26 00:00:00").getTime(); // <-- date change kar dena
+
+// 2. Countdown
+setInterval(()=>{
+  let now = new Date().getTime();
+  let gap = birthday - now;
+  let d = Math.floor(gap/(1000*60*60*24));
+  let h = Math.floor((gap%(1000*60*60*24))/(1000*60*60));
+  let m = Math.floor((gap%(1000*60*60))/(1000*60));
+  let s = Math.floor((gap%(1000*60))/1000);
+  document.getElementById("days").innerText = d<10?'0'+d:d;
+  document.getElementById("hours").innerText = h<10?'0'+h:h;
+  document.getElementById("mins").innerText = m<10?'0'+m:m;
+  document.getElementById("secs").innerText = s<10?'0'+s:s;
+},1000)
+
+// 3. Music
+function playMusic(){
+  let music = document.getElementById("bgMusic");
+  music.paused ? music.play() : music.pause();
+}
+
+// 4. Confetti + Hearts
+function confetti(){
+  for(let i=0;i<50;i++){
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = ["💜","✨","🌸","⭐","🎉"][Math.floor(Math.random()*5)];
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.animationDuration = 3+Math.random()*3 + "s";
+    document.getElementById("hearts").appendChild(heart);
+    setTimeout(()=>heart.remove(),6000)
+  }
+}
+setInterval(confetti, 3000)
+
+// 5. Photo change karne ke liye
+// img tag me src="apni-photo.jpg" daal do
+</script>
+
+</body>
+</html>

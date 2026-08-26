@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>msg</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+  body{
+    background: linear-gradient(135deg,#ffe4ec,#e0f2ff,#fff7e0);
+    background-size: 300% 300%;
+    animation: bg 10s ease infinite;
+    display:flex;align-items:center;justify-content:center;min-height:100vh;
+    overflow:hidden;
+  }
+  @keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+ .card{
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    padding: 30px 25px;
+    border-radius: 25px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    animation: pop 1s ease;
+  }
+  @keyframes pop{0%{transform:scale(0.8);opacity:0}100%{transform:scale(1);opacity:1}}
+
+  h1{font-size: 2rem;color:#d63384;margin-bottom:10px;}
+  h2{font-size:1.2rem;color:#333;margin-bottom:15px;}
+  p{color:#444;line-height:1.6;margin-bottom:20px;}
+
+ .rakhi-img{
+    width:120px;height:120px;margin:15px auto;
+    animation: swing 2s ease-in-out infinite;
+  }
+  @keyframes swing{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+
+ .btn{
+    background:#d63384;color:white;border:none;padding:12px 25px;
+    border-radius:50px;font-size:1rem;cursor:pointer;
+    transition:0.3s;
+  }
+ .btn:hover{background:#a61e67;transform:scale(1.05);}
+
+ .hearts{position:absolute;width:100%;height:100%;pointer-events:none;overflow:hidden;}
+ .heart{
+    position:absolute;color:#ff4d6d;font-size:20px;animation:fall 6s linear infinite;
+  }
+  @keyframes fall{
+    0%{transform:translateY(-10%) rotate(0deg);opacity:1}
+    100%{transform:translateY(110vh) rotate(360deg);opacity:0}
+  }
+</style>
+</head>
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="card">
+  <div class="rakhi-img">🎀</div>
+  <h1>Happy Raksha Bandhan Di! 💙</h1>
+  <h2>To: 𝐑𝐚𝐣𝐚𝐧𝐲𝐚 Di(Chutkii)</h2>
+  <p id="msg">
+    tum mera sabse bessstttessst friend hoti💙,and tension puntchure korne wola bhi hoti😂<br><br>
+    thanks for always being there🥺<br><br>
+   <br>
+    Love you diiiiiiiiiiiiiiiiiiiii! 🫂
+  </p>
+  <button class="btn" onclick="changeMsg()">Mera Ek Aur Message 💌</button>
+</div>
+
+<script>
+  // Falling hearts
+  function createHeart(){
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = '❤️';
+    heart.style.left = Math.random()*100+'vw';
+    heart.style.animationDuration = 3+Math.random()*3+'s';
+    document.getElementById('hearts').appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+  }
+  setInterval(createHeart,300);
+
+  // Message changer
+  const msgs = [
+    "CS tuition + Future tension + Bio 🥀... but u can do it 💪🏻. Mujhe bharosa hai! 💪",
+    "Thanks for being my 'aira gaira nahi' wali person 💙 Love you!",
+   "and yess, beshi tension nish na yrr....i know overthinking hoi...but i believe you can do it all","and i am always here for you yrr...just one text away or one call away...call e tor somosha hote pare so just one text...ànd ill be there","share korte lage broo.....nale tor chul tanbo😂","this bandar jaisa shakal wala bhai 🐵🐵 loves you a lot💙🤗", "and also cares a lot🤧","bhija balish er photo dekhe amar heartbeat bere geche🤧","Happy Rksha bandhan diiii! take care of yourself🫂","plzz wait while bandar is loading his last msg to you on the webpage...."
+  ];
+  let i=0;
+  function changeMsg(){
+    if(i===9){
+      window.location.href="/rakhi/rakhi2.html"
+    }
+    document.getElementById('msg').innerHTML = msgs[i];
+    i = (i+1)%msgs.length;
+    console.log(i)
+  }
+</script>
+</body>
+</html>

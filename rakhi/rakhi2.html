@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+  body{
+    background: linear-gradient(135deg,#ffe4ec,#e0f2ff,#fff7e0);
+    background-size: 300% 300%;
+    animation: bg 10s ease infinite;
+    display:flex;align-items:center;justify-content:center;min-height:100vh;
+    overflow:hidden;
+  }
+   .card{
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    padding: 30px 25px;
+    border-radius: 25px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    animation: pop 1s ease;
+  }
+  @keyframes pop{0%{transform:scale(0.8);opacity:0}100%{transform:scale(1);opacity:1}}
+
+ 
+  .hearts{position:absolute;width:100%;height:100%;pointer-events:none;overflow:hidden;}
+ .heart{
+    position:absolute;color:#ff4d6d;font-size:20px;animation:fall 6s linear infinite;
+  }
+  @keyframes fall{
+    0%{transform:translateY(-10%) rotate(0deg);opacity:1}
+    100%{transform:translateY(110vh) rotate(360deg);opacity:0}
+  }
+  </style>
+</head>
+
+<body>
+<div class="hearts" id="hearts"></div>
+  <div class="card">
+   <h1>🫂</h1>
+   <p>meeeeow meooow😂</p>
+  </div>
+
+</body>
+<script>
+  // Falling hearts
+  function createHeart(){
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = '❤️';
+    heart.style.left = Math.random()*100+'vw';
+    heart.style.animationDuration = 3+Math.random()*3+'s';
+    document.getElementById('hearts').appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+  }
+  setInterval(createHeart,300);
+</script>
+</html>
